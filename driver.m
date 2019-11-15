@@ -31,14 +31,14 @@ while 1
         case 'rightarrow'
                 brick.MoveMotor(leftDriveMotor, 100);
                 brick.MoveMotor(rightDriveMotor, -100);
-        case 'space'
-                brick.MoveMotorAngleAbs(rampMotor, 20, 0, 'Brake'); 
+        case 'tab' %Close Door
+                brick.MoveMotorAngleAbs(rampMotor, 50, -60, 'Brake'); 
                 brick.WaitForMotor(rampMotor);
-        case 'enter'
-                brick.MoveMotorAngleAbs(rampMotor, 20, 80, 'Brake'); 
+        case 'return' %Lift Person
+                brick.MoveMotorAngleAbs(rampMotor, 50, 70, 'Brake'); 
                 brick.WaitForMotor(rampMotor);
-        case 'tab'
-                brick.MoveMotorAngleAbs(rampMotor, 20, 110, 'Brake'); 
+        case 'space' %Lower Door
+                brick.MoveMotorAngleAbs(rampMotor, 50, 120, 'Brake'); 
                 brick.WaitForMotor(rampMotor);
         case 'q'
             break;
