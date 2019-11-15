@@ -22,13 +22,12 @@ stopSignColor = 5;
 endColor = 3;
 atGoal = 0;
 stoppedAlready = 0;
-
+wallDist = 40;
 
 disp(brick.ColorCode(colorSensorPort));
 %main program goes here
 while(atGoal ~= 1)
     turnCounter = 0;
-    disp('hi');
     while(brick.TouchPressed(touchSensorPort) ~= 1)
         if brick.ColorCode(colorSensorPort) == endColor || key == 'q'
             atGoal = 1;
@@ -42,6 +41,14 @@ while(atGoal ~= 1)
         end
         if(brick.ColorCode(colorSensorPort) ~= stopSignColor)
             stoppedAlready = 0;
+        end
+        
+        if(brick.UltrasonicDist(ultrasonicSensorPort) > wallDist)
+            brick.MoveMotorAngleRel('A', 50, 360); % drive halfway through next itle
+            brick.MoveMotorAngleRel('D', 55, 360);
+            brick.WaitForMotor('AD');
+            
+            turnRight90(brick);
         end
         
         brick.MoveMotor('A', 50); % move forward
