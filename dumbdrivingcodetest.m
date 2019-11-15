@@ -61,14 +61,11 @@ while(atGoal ~= 1)
         brick.WaitForMotor('AD');
         if turnCounter > 10
             turnRight90(brick);
-            pause(0.5);
             turnRight90(brick);
-            pause(0.5);
             turnRight90(brick);
             turnCounter = 0;
         else
             turnRight90(brick);
-            pause(0.5);
             turnRight90(brick);
             turnCounter = 10;
         end
@@ -83,6 +80,7 @@ function turnRight90(brick)
    brick.MoveMotorAngleRel('A', 30, 90 * multi, 'Brake');
    brick.MoveMotorAngleRel('D', -30, 90 * multi, 'Brake');
    brick.WaitForMotor('AD');
+   pause(0.5);
 end
 
         
