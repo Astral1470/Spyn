@@ -24,10 +24,10 @@ brick.SetColorMode(colorSensorPort, 2);
 brick.GyroCalibrate(gyroSensorPort);
 
 stopSignColor = 5;
-endColor = 3;
+endColor = 2; %yellow is 4, green is 3, blue is 2
 atGoal = 0;
 stoppedAlready = 0;
-wallDist = 40;
+wallDist = 50;
 turnCounter = 0;
 disp(brick.ColorCode(colorSensorPort));
 %main program goes here
@@ -48,7 +48,7 @@ while(atGoal ~= 1)
         if(brick.ColorCode(colorSensorPort) ~= stopSignColor) % allows us to handle a second stop sign
             stoppedAlready = 0;
         end
-        if(turnCounter > 12 && brick.UltrasonicDist(ultrasonicSensorPort) > wallDist)
+        if(turnCounter > 11 && brick.UltrasonicDist(ultrasonicSensorPort) > wallDist)
             brick.MoveMotorAngleRel('A', 50, 240); % drive halfway through next tile
             brick.MoveMotorAngleRel('D', 55, 240);
             brick.WaitForMotor('AD');
