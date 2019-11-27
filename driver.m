@@ -20,17 +20,17 @@ while 1
     pause(0.1);
     switch key
         case 'uparrow'
-                brick.MoveMotor(leftDriveMotor, -100);
-                brick.MoveMotor(rightDriveMotor, -100);
+                brick.MoveMotor(leftDriveMotor, 50);
+                brick.MoveMotor(rightDriveMotor, 50);
         case 'downarrow'
-                brick.MoveMotor(leftDriveMotor, 100);
-                brick.MoveMotor(rightDriveMotor, 100);
+                brick.MoveMotor(leftDriveMotor, -50);
+                brick.MoveMotor(rightDriveMotor, -50);
         case 'leftarrow'
-                brick.MoveMotor(leftDriveMotor, -100);
-                brick.MoveMotor(rightDriveMotor, 100);
+                brick.MoveMotor(leftDriveMotor, -50);
+                brick.MoveMotor(rightDriveMotor, 50);
         case 'rightarrow'
-                brick.MoveMotor(leftDriveMotor, 100);
-                brick.MoveMotor(rightDriveMotor, -100);
+                brick.MoveMotor(leftDriveMotor, 50);
+                brick.MoveMotor(rightDriveMotor, -50);
         case 'tab' %Close Door
                 brick.MoveMotorAngleAbs(rampMotor, 50, -60, 'Brake'); 
                 brick.WaitForMotor(rampMotor);
